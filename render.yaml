@@ -1,10 +1,9 @@
 services:
-  # ── Service 1: FastAPI Backend ──────────────────────────────────────────────
   - type: web
-    name: medichat-api
+    name: medichat-pro
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    startCommand: bash start.sh
     envVars:
       - key: PYTHON_VERSION
         value: "3.11"
@@ -41,16 +40,4 @@ services:
       - key: EMAIL_PASSWORD
         sync: false
       - key: EMAIL_RECEIVER
-        sync: false
-
-  # ── Service 2: Streamlit Frontend ───────────────────────────────────────────
-  - type: web
-    name: medichat-frontend
-    runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: streamlit run main2.py --server.address 0.0.0.0 --server.port $PORT --server.headless true
-    envVars:
-      - key: PYTHON_VERSION
-        value: "3.11"
-      - key: API_BASE_URL
         sync: false

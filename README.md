@@ -2,6 +2,12 @@
 
 **An AI-powered Medical Document Assistant** that processes patient history PDFs and enables intelligent, RAG-based conversational querying — built with a production-ready FastAPI + Streamlit architecture.
 
+## 🌐 Live Demo
+
+Check the deployed application here:
+
+[Open MediChat Pro](https://medichat-pro-u3u4.onrender.com/)
+
 ---
 
 ## 📌 Project Overview

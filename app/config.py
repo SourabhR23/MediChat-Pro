@@ -6,14 +6,12 @@ load_dotenv()
 
 # Legacy Euri AI Configuration 
 EURI_API_KEY = os.getenv("EURI_API_KEY")
-print(f"EURI_API_KEY: {EURI_API_KEY}")
 
 # Model Configuration
 HF_API_TOKEN = os.getenv("HF_API_TOKEN", "")
 LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4.1-nano")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
 
-print(f"HF_API_TOKEN: {HF_API_TOKEN}")
 
 # Email Configuration
 EMAIL_CONFIG = {

@@ -1,0 +1,56 @@
+services:
+  # ── Service 1: FastAPI Backend ──────────────────────────────────────────────
+  - type: web
+    name: medichat-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: EURI_API_KEY
+        sync: false
+      - key: HF_API_TOKEN
+        sync: false
+      - key: LLM_MODEL
+        value: gpt-4.1-nano
+      - key: EMBEDDING_MODEL
+        value: sentence-transformers/all-MiniLM-L6-v2
+      - key: CHROMA_API_KEY
+        sync: false
+      - key: CHROMA_TENANT
+        sync: false
+      - key: CHROMA_DATABASE
+        value: medibot
+      - key: CHROMA_COLLECTION
+        value: medical_documents
+      - key: S3_ACCESS_KEY
+        sync: false
+      - key: S3_SECRET_KEY
+        sync: false
+      - key: S3_BUCKET_NAME
+        value: medibot-euron-2025
+      - key: S3_REGION
+        value: ap-south-1
+      - key: EMAIL_SMTP_SERVER
+        value: smtp.gmail.com
+      - key: EMAIL_SMTP_PORT
+        value: "587"
+      - key: EMAIL_SENDER
+        sync: false
+      - key: EMAIL_PASSWORD
+        sync: false
+      - key: EMAIL_RECEIVER
+        sync: false
+
+  # ── Service 2: Streamlit Frontend ───────────────────────────────────────────
+  - type: web
+    name: medichat-frontend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run main2.py --server.address 0.0.0.0 --server.port $PORT --server.headless true
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: API_BASE_URL
+        sync: false

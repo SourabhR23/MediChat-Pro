@@ -9,10 +9,12 @@ import streamlit as st
 import requests
 import time
 import re
+import os
 from typing import List, Dict, Any
 
 # ── Config ────────────────────────────────────────────────────────────────────
-API_BASE = "http://localhost:8000"
+
+API_BASE = os.getenv("API_BASE_URL", "http://localhost:8000")
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(

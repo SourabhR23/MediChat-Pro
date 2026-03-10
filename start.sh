@@ -17,7 +17,7 @@ for i in {1..30}; do
 done
 
 echo "Starting Streamlit frontend on port $PORT..."
-API_BASE_URL=http://localhost:8000 streamlit run main2.py \
+API_BASE_URL=http://localhost:8000 streamlit run main.py \
     --server.address 0.0.0.0 \
     --server.port $PORT \
     --server.headless true
